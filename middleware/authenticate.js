@@ -31,7 +31,7 @@ const auth = async (req, res, next) => {
                 return res.send("login again");
             }else{
          
-                jwt.verify(refreshToken,process.env.JET_REFRESH_SECRET,async(err,decoded)=>{
+                jwt.verify(refreshToken,process.env.JWT_REFRESH_SECRET,async(err,decoded)=>{
                     if(decoded){
                         let userid=decoded.userid;
                         let token=jwt.sign({userid:userid},process.env.JWT_TOKEN);
